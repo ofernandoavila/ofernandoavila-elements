@@ -1,0 +1,21 @@
+@import '../../../node_modules/bootstrap/dist/css/bootstrap.min.css';
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    --bs-form-invalid-border-color: #FE3152;
+    --bs-border-color: #dce0e0;
+    --bs-border-width: 1px;
+    --bs-border-radius: 8px;
+    
+    font-family: "Urbanist", sans-serif;
+}
+
+.form {
+    &-label {
+        font-style: light;
+    }
+
+    &-control {
+        padding: 8px 16px;
+    }
+}
