@@ -1,19 +1,17 @@
-import './_text.scss';
+import './_text-area.scss';
 import { IInputProps } from '../types';
 
-export function Text({
+export function TextArea({
     label,
     placeholder,
-    validation
+    validation,
+    name,
+    id
 }: IInputProps) {
     return (
         <div className="form-group">
             { label ? <label htmlFor="" className="form-label">{ label }</label> : '' }
-            <input 
-                type="text"
-                className={`form-control ${ validation ? 'is-' + validation.status : '' }`} 
-                placeholder={ placeholder } 
-            />
+            <textarea placeholder={ placeholder } className={`form-control ${ validation ? 'is-' + validation.status : '' }`} name={name}  id={id}></textarea>
             { validation?.status == 'invalid' && validation?.message ? (
                 <div className="invalid-feedback">{ validation.message }</div>
             ): '' }

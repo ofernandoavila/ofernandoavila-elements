@@ -1,19 +1,17 @@
-import './_text.scss';
 import { IInputProps } from '../types';
+import './_checkbox.scss';
 
-export function Text({
+export function Checkbox({
     label,
     placeholder,
-    validation
+    validation,
+    id,
+    name
 }: IInputProps) {
     return (
-        <div className="form-group">
-            { label ? <label htmlFor="" className="form-label">{ label }</label> : '' }
-            <input 
-                type="text"
-                className={`form-control ${ validation ? 'is-' + validation.status : '' }`} 
-                placeholder={ placeholder } 
-            />
+        <div className="form-check">
+            <input type="checkbox" className={`form-check-input ${ validation ? 'is-' + validation.status : '' }`} name={name} id={ id } />
+            { label ? <label className="form-check-label" htmlFor={ id }>{ label }</label> : '' }
             { validation?.status == 'invalid' && validation?.message ? (
                 <div className="invalid-feedback">{ validation.message }</div>
             ): '' }

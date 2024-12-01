@@ -1,7 +1,7 @@
-import './_text.scss';
 import { IInputProps } from '../types';
+import './_password.scss';
 
-export function Text({
+export function Password({
     label,
     placeholder,
     validation
@@ -10,7 +10,7 @@ export function Text({
         <div className="form-group">
             { label ? <label htmlFor="" className="form-label">{ label }</label> : '' }
             <input 
-                type="text"
+                type="password"
                 className={`form-control ${ validation ? 'is-' + validation.status : '' }`} 
                 placeholder={ placeholder } 
             />
