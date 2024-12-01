@@ -6,11 +6,14 @@ export function Checkbox({
     placeholder,
     validation,
     id,
-    name
+    name,
+    value,
+    onChange,
+    checked
 }: IInputProps) {
     return (
         <div className="form-check">
-            <input type="checkbox" className={`form-check-input ${ validation ? 'is-' + validation.status : '' }`} name={name} id={ id } />
+            <input type="checkbox" onChange={onChange} className={`form-check-input ${ validation ? 'is-' + validation.status : '' }`} name={name} id={ id } checked={ checked } />
             { label ? <label className="form-check-label" htmlFor={ id }>{ label }</label> : '' }
             { validation?.status == 'invalid' && validation?.message ? (
                 <div className="invalid-feedback">{ validation.message }</div>

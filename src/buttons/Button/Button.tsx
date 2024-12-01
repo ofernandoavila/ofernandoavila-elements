@@ -6,7 +6,7 @@ type ButtonColorType = 'primary' | 'secondary' | 'default' | 'success' | 'danger
 export interface IButtonProps {
     color?: ButtonColorType;
     label: string;
-    onClick?: () => void;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export function Button({ 

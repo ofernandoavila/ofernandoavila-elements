@@ -4,7 +4,9 @@ import { IInputProps } from '../types';
 export function Text({
     label,
     placeholder,
-    validation
+    validation,
+    value,
+    onChange
 }: IInputProps) {
     return (
         <div className="form-group">
@@ -13,6 +15,8 @@ export function Text({
                 type="text"
                 className={`form-control ${ validation ? 'is-' + validation.status : '' }`} 
                 placeholder={ placeholder } 
+                value={value}
+                onChange={onChange}
             />
             { validation?.status == 'invalid' && validation?.message ? (
                 <div className="invalid-feedback">{ validation.message }</div>

@@ -4,7 +4,9 @@ import './_password.scss';
 export function Password({
     label,
     placeholder,
-    validation
+    validation,
+    value,
+    onChange
 }: IInputProps) {
     return (
         <div className="form-group">
@@ -12,7 +14,9 @@ export function Password({
             <input 
                 type="password"
                 className={`form-control ${ validation ? 'is-' + validation.status : '' }`} 
-                placeholder={ placeholder } 
+                placeholder={ placeholder }
+                value={value}
+                onChange={onChange} 
             />
             { validation?.status == 'invalid' && validation?.message ? (
                 <div className="invalid-feedback">{ validation.message }</div>
