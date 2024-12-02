@@ -5,7 +5,8 @@ import { Password } from "../../inputs/Password/Password";
 import { Text } from "../../inputs/Text/Text";
 import { IInputValidation } from "../../inputs/types";
 
-import './_login-form.scss';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../scss/style.scss';
 
 export function LoginForm({
     title,

@@ -1,5 +1,7 @@
-import './_card.scss';
 import { ICardProps } from './types';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../scss/style.scss';
 
 export function Card({
     cardFooter,

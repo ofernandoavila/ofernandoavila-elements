@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { Card } from "../Card";
-import '../_card.scss';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../scss/style.scss';
 
 interface IPostCardProps {
     postTitle: string;

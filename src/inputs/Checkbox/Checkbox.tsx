@@ -1,5 +1,7 @@
 import { IInputProps } from '../types';
-import './_checkbox.scss';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../scss/style.scss';
 
 export function Checkbox({
     label,

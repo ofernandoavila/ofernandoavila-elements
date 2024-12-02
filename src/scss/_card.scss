@@ -1,5 +1,3 @@
-@import '../scss/style.scss';
-
 .post-card {
     position: relative;
     .card-header, .card-footer {
@@ -10,20 +8,6 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
-    
-        .fa-award {
-            font-size: 22px;
-            color: var(--bs-primary);
-        }
-
-        .fa-star {
-            color: #FFC225;
-        }
-
-        .fa-regular.fa-star {
-            color: var(--bs-gray);
-        }
     
         ul {
             margin: 0;

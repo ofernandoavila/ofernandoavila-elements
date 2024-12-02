@@ -4,9 +4,11 @@ import { CreatePasswordValidation } from "../../custom/CreatePasswordValidation/
 import { Checkbox } from "../../inputs/Checkbox/Checkbox";
 import { Password } from "../../inputs/Password/Password";
 import { Text } from "../../inputs/Text/Text";
-import './_signup-form.scss';
 import { IInputValidation } from "../../inputs/types";
 import { formValidation, IValidation, ValidateForm } from "../../validations/forms/FormValidation";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../scss/style.scss';
 
 export function SignUpForm({
     title,
@@ -60,7 +62,7 @@ export function SignUpForm({
     }
 
     return (
-        <form className={`signup-form ${ bordered ? 'signup-form-bordered' : '' }`}>
+        <form className={`form ${ bordered ? 'form-bordered' : '' }`}>
             { title ? <h4 className="title"> { title }</h4> : '' }
             <div className="row">
                 <div className="col">

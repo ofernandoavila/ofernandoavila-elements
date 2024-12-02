@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button } from "../../buttons/Button/Button";
 import { Text } from "../../inputs/Text/Text";
-import './_forgot-password-form.scss';
 import { IInputValidation } from "../../inputs/types";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../scss/style.scss';
 
 export function ForgotPasswordForm({
     title,

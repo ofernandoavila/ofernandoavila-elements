@@ -1,6 +1,9 @@
 import { ReactNode, useEffect } from 'react';
-import './_button.scss';
 import { Loading } from '../../elements/Loading/Loading';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../../scss/style.scss';
+import './_button.scss';
 
 type ButtonColorType = 'primary' | 'secondary' | 'default' | 'success' | 'danger' | 'warning';
 
