@@ -8,10 +8,15 @@ export function Card({
     title,
     subtitle,
     text,
-    links
+    links,
+    textCenter,
+    width,
+    height,
+    id,
+    className
 }: ICardProps) {
     return (
-        <div className="card">
+        <div id={ id } className={`card ${ textCenter ? 'text-center' : '' } ${className}`} style={{ width, height }}>
             { cardHeader ? <div className="card-header">{ cardHeader }</div> : ( <></> ) }
             <div className="card-body">
                 { title ? <h5 className="card-title">{ title }</h5> : '' }
