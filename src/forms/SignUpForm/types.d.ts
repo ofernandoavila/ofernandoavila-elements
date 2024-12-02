@@ -3,12 +3,7 @@ interface IFormSignUpFormProps {
     bordered?: boolean;
     options?: {
         usernameMinLength?: number;
-        passwordValidation?: {
-            hasNumber?: boolean;
-            hasSpecialChar?: boolean;
-            hasUpperCase?: boolean;
-            minimumChars?: number;
-        }
+        passwordValidation?: IFormPasswordCreationValidation;
     };
     onSubmitForm: (form: any) => void;
 }

@@ -1,9 +1,78 @@
 .form {
+    width: 100%;
+    max-width: 400px;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 16px;
+    gap: 16px;
+
+    .btn {
+        margin-top: 16px;
+    }
+    
+    .title {
+        text-align: center;
+        margin-bottom: 24px;
+    }
+    
+    .form-check {
+        align-self: flex-start;
+
+        .invalid-feedback,
+        .valid-feedback {
+            margin-top: 0px;
+        }
+    }
+
+    p {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    i {
+        font-size: 10px;
+    }
+
+    .icon i {
+        font-size: 48px;
+    }
+
+    .icon.success {
+        color: var(--bs-success);
+    }
+    
+    .icon.danger {
+        color: var(--bs-danger);
+    }
+
+    .form-group {
+        width: 100%;
+
+    }
+
     &-label {
         font-style: light;
     }
 
     &-control {
         padding: 8px 16px;
+    }
+}
+
+.form-bordered {
+    border: var(--bs-border-width) solid var(--bs-border-color);
+    border-radius: var(--bs-border-radius);
+}
+
+.operation-result {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+    span.message {
+        margin-top: 24px;
     }
 }

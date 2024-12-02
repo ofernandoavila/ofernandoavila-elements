@@ -1,6 +1,6 @@
 import { InputHTMLAttributes } from "react";
 
-type InputValidationStatus = 'valid' | 'invalid';
+export type InputValidationStatus = 'valid' | 'invalid';
 
 interface IInputValidation {
     status: InputValidationStatus;

@@ -47,7 +47,7 @@ export function ForgotPasswordForm({
     }
 
     return (
-        <form className={`forgot-password-form ${ bordered ? 'forgot-password-form-bordered' : '' }`}>
+        <form className={`form ${ bordered ? 'form-bordered' : '' }`}>
             { title ? <h4 className="title"> { title }</h4> : '' }
             { message ? <p>{ message }</p> : '' }
             <Text label="E-mail" value={email} validation={emailValidation} onChange={e => setEmail(e.currentTarget.value)}  placeholder="Insert your e-mail here" />

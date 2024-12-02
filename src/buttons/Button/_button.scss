@@ -1,1 +1,9 @@
 @import '../../scss/style.scss';
+
+.btn {
+    .loader {
+        width: 24px;
+        height: 24px;
+        border-width: 3px;
+    }
+}

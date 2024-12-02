@@ -6,6 +6,7 @@ import { Password } from "../../inputs/Password/Password";
 import { Text } from "../../inputs/Text/Text";
 import './_signup-form.scss';
 import { IInputValidation } from "../../inputs/types";
+import { formValidation, IValidation, ValidateForm } from "../../validations/forms/FormValidation";
 
 export function SignUpForm({
     title,
@@ -31,118 +32,31 @@ export function SignUpForm({
 
     useEffect(() => {
         if(username.length > 4 && usernameValidation === undefined) {
-            validations.username();
+            formValidation.username(username, setUsernameValidation);
         }
         
         if(email.length > 4) {
-            validations.email();
+            formValidation.email(email, setEmailValidation);
         }
 
         if(password.length > 4) {
-            validations.password();
+            formValidation.password(isPasswordValid, setPasswordValidation);
         }
     }, [username, email]);
 
-    const validations = {
-        username: () => {
-            if(options?.usernameMinLength) {
-                if(username.length < options.usernameMinLength) {
-                    setUsernameValidation({
-                        status: "invalid",
-                        message: "The username must have at least " + options.usernameMinLength + " characters"
-                    });
-                    return false;
-                } else {
-                    setUsernameValidation({
-                        status: 'valid'
-                    });
-                    return true;
-                }
-            } else {
-                if(username.length < 3) {
-                    setUsernameValidation({
-                        status: "invalid",
-                        message: "The username must have at least 3 characters"
-                    });
-                    return false;
-                } else {
-                    setUsernameValidation({
-                        status: 'valid'
-                    });
-                    return true;
-                }
-            }
-        },
-        email: () => {
-            if(!/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email) || email === "") {
-                setEmailValidation({
-                    status: "invalid",
-                    message: "Invalid e-mail"
-                });
-                return false;
-            } else {
-                setEmailValidation({
-                    status: "valid"
-                });
-                return true;
-            }
-        },
-        password: () => {
-            if(!isPasswordValid) {
-                setPasswordValidation({
-                    status: "invalid",
-                    message: "Password invalid!"
-                });
-                return false;
-            } else {
-                setPasswordValidation({
-                    status: "valid"
-                });
-                return true;
-            }
-        },
-
-        confirmPassword: () => {
-            if(password !== confirmPassword || password === "" && confirmPassword === "") {
-                setConfirmPasswordValidation({
-                    status: "invalid",
-                    message: "The passwords must match!"
-                });
-
-                return false;
-            } else {
-                setConfirmPasswordValidation({
-                    status: "valid"
-                });
-                return true;
-            }
-        },
-
-        terms: () => {
-            if(!terms) {
-                setTermsValidation({
-                    status: "invalid",
-                    message: "You must accept the terms to create an account!"
-                });
-                return false;
-            } else {
-                setTermsValidation(undefined);
-                return true;
-            }
-        }
-    };
+    const validations: IValidation[] = [
+        { validator: () => formValidation.username(username, setUsernameValidation) },
+        { validator: () => formValidation.email(email, setEmailValidation) },
+        { validator: () => formValidation.password(isPasswordValid, setPasswordValidation) },
+        { validator: () => formValidation.confirmPassword(password, confirmPassword, setConfirmPasswordValidation) },
+        { validator: () => formValidation.terms(terms, setTermsValidation) },
+    ]; 
 
     function HandleOnSubmitForm(e: any) {
         e.preventDefault();
-        const results = [];
-
-        results.push(validations.username());
-        results.push(validations.email());
-        results.push(validations.password());
-        results.push(validations.confirmPassword());
-        results.push(validations.terms());
-
-        return results.filter(x => x === false).length === 0 ? onSubmitForm({ username, email, password, terms }) : false;
+        if(ValidateForm(validations)) {
+            return onSubmitForm({ password });
+        }
     }
 
     return (
