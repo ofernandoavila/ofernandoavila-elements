@@ -15,10 +15,11 @@ export function Card({
     width,
     height,
     id,
-    className
+    className,
+    bordered = true
 }: ICardProps) {
     return (
-        <div id={ id } className={`card ${ textCenter ? 'text-center' : '' } ${className}`} style={{ width, height }}>
+        <div id={ id } className={`card ${className}${ textCenter ? ' text-center' : '' }${ !bordered ? ' card-no-border' : '' }`} style={{ width, height }}>
             { cardHeader ? <div className="card-header">{ cardHeader }</div> : ( <></> ) }
             <div className="card-body">
                 { title ? <h5 className="card-title">{ title }</h5> : '' }

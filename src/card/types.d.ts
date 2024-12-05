@@ -12,5 +12,6 @@ interface ICardProps {
     links?: { label: string; href: string; }[];
     cardHeader?: JSX.Element;
     cardFooter?: JSX.Element;
+    bordered?: boolean;
     children?: ReactNode;
 }
