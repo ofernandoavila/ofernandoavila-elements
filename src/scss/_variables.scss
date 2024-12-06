@@ -1,15 +1,51 @@
-* {
-    --bs-form-invalid-border-color: #FE3152;
-    --bs-border-color: #dce0e0;
-    --bs-border-width: 1px;
-    --bs-border-radius: 8px;
-    
-    font-family: "Urbanist", sans-serif;
+$elements-gray: #95A5A5;
+$elements-gray-hover: #505858;
 
-    --bs-gray: #95A5A5;
-    --bs-red: #FE3152;
-    --bs-primary: #9A59B5;
-    --bs-secondary: #F39C11;
+$elements-red: #FE3152;
+$elements-red-hover: #BD233C;
 
-    --bs-primary-hover: #693D7B;
-}
+$elements-green: #27AE61;
+$elements-green-hover: #1C8549;
+
+$elements-blue: #297FBB;
+$elements-blue-hover: #1D5F8A;
+
+$elements-orange: #F39C11;
+$elements-orange-hover: #C17B0B;
+
+$elements-yellow: #FFD011;
+$elements-yellow-hover: #D6AE0C;
+
+$elements-primary: #9A59B5;
+$elements-primary-hover: #693D7B;
+
+$elements-black: #333;
+$elements-black-hover: #000;
+
+$elements-text-white: #fff;
+
+$elements-secondary: $elements-orange;
+$elements-secondary-hover: $elements-orange-hover;
+
+$elements-third: $elements-blue;
+$elements-third-hover: $elements-blue-hover;
+
+$elements-default: $elements-black;
+$elements-default-hover: $elements-black-hover;
+
+$elements-success: $elements-green;
+$elements-success-hover: $elements-green-hover;
+
+$elements-danger: $elements-red;
+$elements-danger-hover: $elements-red-hover;
+
+$elements-warning: $elements-yellow;
+$elements-warning-hover: $elements-yellow-hover;
+
+$elements-info: $elements-blue;
+$elements-info-hover: $elements-blue-hover;
+
+$elements-loader-size: 48px;
+$elements-loader-thick: 5px;
+$elements-loader-color-out: $elements-gray-hover;
+$elements-loader-color-in: $elements-gray;
