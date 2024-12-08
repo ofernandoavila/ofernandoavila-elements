@@ -7,7 +7,6 @@ import { Text } from "../../inputs/Text/Text";
 import { IInputValidation } from "../../inputs/types";
 import { formValidation, IValidation, ValidateForm } from "../../validations/forms/FormValidation";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
 
 export function SignUpForm({

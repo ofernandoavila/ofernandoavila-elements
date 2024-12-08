@@ -14,3 +14,7 @@ interface ICreatePasswordValidationItemProps {
     password: string;
     onValidate: (password: string) => boolean;
 }
+
+interface IPostDificultyProps {
+    postRating: number;
+}

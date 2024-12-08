@@ -3,6 +3,10 @@
     align-items: center;
     justify-content: flex-start;
 
+    i.fa-award { 
+        margin-right: 16px;
+    }
+
     ul {
         padding: 0;
         margin: 0;
@@ -12,15 +16,15 @@
 
         .fa-award {
             font-size: 22px;
-            color: var(--bs-primary);
+            color: $elements-primary;
         }
 
         .fa-star {
-            color: #FFC225;
+            color: $elements-gold;
         }
 
         .fa-regular.fa-star {
-            color: var(--bs-gray);
+            color: $elements-gray;
         }
     }
 }

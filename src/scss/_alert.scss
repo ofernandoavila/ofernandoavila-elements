@@ -3,8 +3,8 @@
     font-size: 14px;
     font-weight: 500;
     padding: 16px 32px;
-    --bs-alert-border-color: none;
-    --bs-alert-color: var(--elements-text-primary);
+    border-color: none;
+    background-color: transparent;
 
     i { 
         margin-right: 16px; 

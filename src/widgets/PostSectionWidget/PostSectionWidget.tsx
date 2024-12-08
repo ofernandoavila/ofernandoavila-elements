@@ -1,10 +1,6 @@
-import { title } from "process";
-import { Card } from "../../card/Card";
+import { Card } from "../../card/Card/Card";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
-
-import './_post-section-widget.scss';
 
 interface IPostSectionWidgetProps {
     active?: number;

@@ -15,3 +15,14 @@ interface ICardProps {
     bordered?: boolean;
     children?: ReactNode;
 }
+
+interface IPostCardProps {
+    postTitle: string;
+    postCategory: string;
+    postExcerpt: string;
+    postAuthor: string;
+    postReadTime: number;
+    postRating: number;
+    postCategoryBackgroundColor?: string;
+    postCategoryColor?: string;
+}

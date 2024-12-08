@@ -1,7 +1,6 @@
-import { ICardProps } from './types';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../scss/style.scss';
+import '../../scss/style.scss';
+import { ICardProps } from '../types';
 
 export function Card({
     cardFooter,

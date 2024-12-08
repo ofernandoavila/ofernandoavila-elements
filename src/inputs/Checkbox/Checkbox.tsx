@@ -1,15 +1,12 @@
 import { IInputProps } from '../types';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
 
 export function Checkbox({
     label,
-    placeholder,
     validation,
     id,
     name,
-    value,
     onChange,
     checked
 }: IInputProps) {

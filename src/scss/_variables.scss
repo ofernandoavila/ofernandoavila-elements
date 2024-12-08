@@ -16,13 +16,17 @@ $elements-orange-hover: #C17B0B;
 $elements-yellow: #FFD011;
 $elements-yellow-hover: #D6AE0C;
 
+$elements-gold: #FFC225;
+
 $elements-primary: #9A59B5;
 $elements-primary-hover: #693D7B;
 
 $elements-black: #333;
 $elements-black-hover: #000;
 
+$elements-text-secondary: $elements-gray;
 $elements-text-white: #fff;
+$elements-text-black: #000;
 
 $elements-secondary: $elements-orange;
 $elements-secondary-hover: $elements-orange-hover;
@@ -40,6 +44,7 @@ $elements-danger: $elements-red;
 $elements-danger-hover: $elements-red-hover;
 
 $elements-warning: $elements-yellow;
+$elements-warning-font-weight: 600;
 $elements-warning-hover: $elements-yellow-hover;
 
 $elements-info: $elements-blue;
@@ -49,3 +54,24 @@ $elements-loader-size: 48px;
 $elements-loader-thick: 5px;
 $elements-loader-color-out: $elements-gray-hover;
 $elements-loader-color-in: $elements-gray;
+
+$elements-btn-nav-bg-color: none;
+$elements-btn-nav-bg-color-hover: none;
+$elements-btn-nav-color: $elements-black;
+$elements-btn-nav-color-hover: $elements-black-hover;
+
+$elements-btn-nav-border-color: none;
+$elements-btn-nav-border-color-hover: none;
+$elements-btn-nav-font-weight: 600;
+$elements-btn-nav-a-decoration: underline;
+
+
+$elements-form-border-width: 1px;
+$elements-form-border-color: #ccc;
+$elements-form-border-radius: 8px;
+
+$elements-font-primary: "Urbanist", sans-serif;
+$elements-font-secondary: "DM Sans", sans-serif;
+
+$elements-card-padding-x: 16px;
+$elements-card-padding-y: 16px;

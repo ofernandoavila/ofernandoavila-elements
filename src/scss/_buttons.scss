@@ -14,6 +14,10 @@
         right: -32px;
         top: calc(50% - calc($elements-loader-size / 4));
         transform: translateY(-50%);
+
+        width: 24px;
+        height: 24px;
+        border-width: 3px;
     }
 }
 
@@ -34,6 +38,17 @@
     &:hover {
         background-color: $elements-success-hover;
         border: $elements-success-hover;
+    }
+}
+
+.btn-warning {
+    background-color: $elements-warning;
+    border: $elements-warning;
+    font-weight: $elements-warning-font-weight;
+    
+    &:hover {
+        background-color: $elements-warning-hover;
+        border: $elements-warning-hover;
     }
 }
 
@@ -78,5 +93,19 @@
         background-color: $elements-default-hover;
         border: $elements-default-hover;
         color: $elements-text-white;
+    }
+}
+
+.btn-nav {
+    background-color: $elements-btn-nav-bg-color;
+    border: $elements-btn-nav-border-color ;
+    color: $elements-text-black;
+    text-decoration: $elements-btn-nav-a-decoration;
+    font-weight: $elements-btn-nav-font-weight;
+    
+    &:hover {
+        background-color: $elements-btn-nav-bg-color-hover;
+        border: $elements-btn-nav-border-color-hover;
+        color: $elements-text-black;
     }
 }

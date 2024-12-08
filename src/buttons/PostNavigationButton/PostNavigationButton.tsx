@@ -1,10 +1,4 @@
-import './_post-navigation-button.scss';
-
-interface IPostNavigationButtonProps {
-    type: 'previous' | 'next';
-    postTitle: string;
-    onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+import '../../scss/style.scss';
 
 export function PostNavigationButton({
     type,

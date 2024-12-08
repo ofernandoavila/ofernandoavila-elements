@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PostSectionWidget } from '../../widgets/PostSectionWidget/PostSectionWidget';
+import { PostSectionWidget } from './PostSectionWidget';
 
 const meta = {
 	title: 'Widgets/PostSectionWidget',

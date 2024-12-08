@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ResetPassword } from '../../../../pages/Auth/ResetPassword/ResetPassword';
+import { ResetPassword } from './ResetPassword';
 
 const meta = {
 	title: 'pages/Auth/ResetPassword',

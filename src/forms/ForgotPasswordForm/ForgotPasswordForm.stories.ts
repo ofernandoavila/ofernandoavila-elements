@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { ForgotPasswordForm } from "../../../forms/ForgotPasswordForm/ForgotPasswordForm";
+import { ForgotPasswordForm } from "./ForgotPasswordForm";
 
 const meta = {
     title: 'Forms/ForgotPasswordForm',

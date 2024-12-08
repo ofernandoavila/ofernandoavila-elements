@@ -1,10 +1,7 @@
-import { Card } from "../../card/Card";
-
-import 'bootstrap/dist/css/bootstrap.min.css';
-import '../../scss/style.scss'
-import './_post-meta-widget.scss';
-import { useState, useEffect } from "react";
+import { Card } from "../../card/Card/Card";
 import { PostDificulty } from "../../custom/PostDificulty/PostDificulty";
+
+import '../../scss/style.scss';
 
 interface IPostMetaWidgetProps {
     postCategories: { name: string, href: string; }[];

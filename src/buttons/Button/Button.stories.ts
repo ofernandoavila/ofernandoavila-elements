@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Button } from '../../../buttons/Button/Button';
-import { fn } from '@storybook/test';
+import { Button } from './Button';
 
 const meta = {
 	title: 'Buttons/Button',
@@ -8,9 +7,7 @@ const meta = {
 	parameters: {
 		layout: 'centered',
 	},
-	// tags: ['autodocs'],
-	argTypes: {},
-	args: { onClick: fn() },
+	tags: ['autodocs'],
 } satisfies Meta<typeof Button>;
 
 export default meta;

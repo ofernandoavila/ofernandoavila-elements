@@ -7,13 +7,6 @@ const states: { state: IAlertType; element: JSX.Element }[] = [
     { state: 'info', element: <i className="fa fa-info"></i>},
 ];
 
-type IAlertType = 'danger' | 'success' | 'warning' | 'info';
-
-interface IAlertProps {
-    type: IAlertType;
-    mesage: string;
-}
-
 export function Alert({
     type,
     mesage

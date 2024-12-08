@@ -1,9 +1,13 @@
 .post-meta-widget {
     i {
-        color: var(--bs-primary);
+        color: $elements-primary;
     }
     
-    b { 
+    i.fa-award {
+        margin-right: 6px;
+    }
+    
+    b {
         margin: 0px 8px;
     }
 

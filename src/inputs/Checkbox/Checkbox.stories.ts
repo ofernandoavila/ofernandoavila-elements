@@ -1,28 +1,30 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { Password } from "../../../inputs/Password/Password";
+import { Checkbox } from "./Checkbox";
 
 const meta = {
-    title: 'Inputs/Password',
-    component: Password,
+    title: 'Inputs/Checkbox',
+    component: Checkbox,
     parameters: {
         layout: 'centered'
     }
-} satisfies Meta<typeof Password> ;
+} satisfies Meta<typeof Checkbox> ;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
     args: {
-        label: 'Password',
-        placeholder: 'Enter your password here'
+        label: 'Checkbox',
+        placeholder: 'Enter your password here',
+        id: 'checkbox'
     }
 };
 
 export const Invalid: Story = {
     args: {
-        label: 'Password',
+        label: 'Checkbox',
         placeholder: 'Enter your password here',
+        id: 'checkbox',
         validation: {
             status: "invalid",
             message: "Wrong password"
@@ -32,10 +34,11 @@ export const Invalid: Story = {
 
 export const Valid: Story = {
     args: {
-        label: 'Password',
+        label: 'Checkbox',
         placeholder: 'Enter your password here',
         validation: {
             status: "valid"
-        }
+        },
+        id: 'checkbox'
     }
 };

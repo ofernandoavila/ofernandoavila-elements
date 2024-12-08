@@ -1,6 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { PostNavigationButton } from '../../../buttons/PostNavigationButton/PostNavigationButton';
-import { fn } from '@storybook/test';
+import { PostNavigationButton } from './PostNavigationButton';
 
 const meta = {
 	title: 'Buttons/PostNavigationButton',
@@ -8,7 +7,7 @@ const meta = {
 	parameters: {
 		layout: 'centered',
 	},
-	// tags: ['autodocs'],
+	tags: ['autodocs'],
 	argTypes: {},
 } satisfies Meta<typeof PostNavigationButton>;
 

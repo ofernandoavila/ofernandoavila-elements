@@ -1,13 +1,13 @@
 .post-card {
     position: relative;
     .card-header, .card-footer {
-        --bs-card-cap-padding-y: 20px;
-        --bs-card-cap-bg: transparent;
-        --bs-card-border-color: transparent;
-
         display: flex;
         justify-content: space-between;
         align-items: center;
+
+        padding: $elements-card-padding-y $elements-card-padding-x;
+        background: transparent;
+        border-color: transparent;
     
         ul {
             margin: 0;
@@ -18,19 +18,19 @@
     .card-title {
         font-size: 22px;
         font-weight: 800;
-        font-family: "DM Sans", sans-serif;
+        font-family: $elements-font-secondary;
     }
     
     .card-subtitle {
         margin-top: 24px;
         font-size: 18px;
         font-weight: 300;
-        color: var(--bs-gray);
-        font-family: "DM Sans", sans-serif;
+        color: $elements-text-secondary;
+        font-family: $elements-font-secondary;
     }
 
     .post-card-author {
-        font-family: "DM Sans", sans-serif;
+        font-family: $elements-font-secondary;
         font-size: 16px;
         font-weight: 800;
     }
@@ -73,7 +73,7 @@
     }
 
     .fa-clock {
-        color: var(--bs-primary);
+        color: $elements-primary;
     }
 }
 

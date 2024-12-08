@@ -1,19 +1,8 @@
-import { useEffect, useState } from "react";
-import { Card } from "../Card";
+import { Card } from "../Card/Card";
+import { PostDificulty } from "../../custom/PostDificulty/PostDificulty";
+import { IPostCardProps } from "../types";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
-
-interface IPostCardProps {
-    postTitle: string;
-    postCategory: string;
-    postExcerpt: string;
-    postAuthor: string;
-    postReadTime: number;
-    postRating: number;
-    postCategoryBackgroundColor?: string;
-    postCategoryColor?: string;
-}
 
 export function PostCard({
     postCategory,
@@ -25,26 +14,6 @@ export function PostCard({
     postCategoryBackgroundColor,
     postCategoryColor
 }: IPostCardProps) {
-    const [rating, setRating] = useState<JSX.Element[]>([]);
-
-    function renderRating(postRating: number) : JSX.Element[] {
-        const components: JSX.Element[] = [];
-    
-        for(let i = 0; i < 3; i++) {
-            if(i < postRating) {
-                components.push(<i className="fa fa-star"></i>);
-            } else {
-                components.push(<i className="fa-regular fa-star"></i>);
-            }
-        }
-
-        return components;
-    }
-
-    useEffect(() => {
-        setRating(renderRating(postRating));
-    }, []);
-
     return (
         <Card
             className="post-card"
@@ -55,10 +24,7 @@ export function PostCard({
                         <div className="background" style={{ backgroundColor: postCategoryBackgroundColor }}></div>
                         <div className="label" style={{ color: postCategoryColor }}>{ postCategory }</div>
                     </span>
-                    <div className="post-card-rating">
-                        <i className="fa fa-award"></i>
-                        <ul>{ rating.map( element => element ) }</ul>
-                    </div>
+                    <PostDificulty postRating={ postRating } />
                 </>
             )}
             cardFooter={(

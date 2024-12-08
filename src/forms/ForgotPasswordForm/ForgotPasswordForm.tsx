@@ -3,7 +3,6 @@ import { Button } from "../../buttons/Button/Button";
 import { Text } from "../../inputs/Text/Text";
 import { IInputValidation } from "../../inputs/types";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
 
 export function ForgotPasswordForm({
@@ -58,7 +57,7 @@ export function ForgotPasswordForm({
                 options?.backToSignIn ? 
                     <Button 
                         label="Back to sign in" 
-                        color="default" 
+                        color="nav" 
                         onClick={ e => {
                             e.preventDefault();
 

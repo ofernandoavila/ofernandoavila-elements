@@ -1,7 +1,6 @@
 .form {
     width: 100%;
     max-width: 400px;
-    align-items: center;
     display: flex;
     flex-direction: column;
     padding: 32px 16px;
@@ -23,6 +22,12 @@
         .valid-feedback {
             margin-top: 0px;
         }
+
+        &-label {
+            &:hover {
+                cursor: pointer;
+            }
+        }
     }
 
     p {
@@ -39,15 +44,19 @@
     }
 
     .icon.success {
-        color: var(--bs-success);
+        color: $elements-success;
     }
     
     .icon.danger {
-        color: var(--bs-danger);
+        color: $elements-danger;
     }
 
     .form-group {
         width: 100%;
+        
+        input::placeholder {
+            font-size: 14px;
+        }
 
     }
 
@@ -61,8 +70,8 @@
 }
 
 .form-bordered {
-    border: var(--bs-border-width) solid var(--bs-border-color);
-    border-radius: var(--bs-border-radius);
+    border: $elements-form-border-width solid $elements-form-border-color;
+    border-radius: $elements-form-border-radius;
 }
 
 .operation-result {
@@ -74,5 +83,15 @@
 
     span.message {
         margin-top: 24px;
+    }
+}
+
+.form-check {
+    &-label {
+        font-size: 14px;
+
+        &:hover {
+            cursor: pointer;
+        }
     }
 }

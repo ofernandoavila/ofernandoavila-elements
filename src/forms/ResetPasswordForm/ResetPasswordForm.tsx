@@ -7,7 +7,6 @@ import { Password } from "../../inputs/Password/Password";
 import { IFormResetCodeFormProps, IFormResetPasswordEndFormProps, IFormResetPasswordFormProps } from "./types";
 import { formValidation, IValidation, ValidateForm } from "../../validations/forms/FormValidation";
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
 
 export function ResetPasswordForm({

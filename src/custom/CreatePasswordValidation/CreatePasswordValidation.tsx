@@ -1,10 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ICreatePasswordValidationProps, ICreatePasswordValidationItemProps } from './types';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../../scss/style.scss';
-
-import './_create-password-validation.scss';
 
 export function CreatePasswordValidation({
     password,
