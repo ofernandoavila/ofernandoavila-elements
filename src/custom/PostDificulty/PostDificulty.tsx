@@ -22,7 +22,7 @@ export function PostDificulty({ postRating }: IPostDificultyProps) {
 
     useEffect(() => {
         setRating(renderRating(postRating));
-    }, []);
+    }, [postRating]);
     
     return (
         <div className="post-dificulty">

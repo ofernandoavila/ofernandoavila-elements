@@ -11,11 +11,11 @@
 @import 'forms';
 @import 'loading';
 
-@import '../buttons/PostNavigationButton/post-navigation-button';
+@import '../components/buttons/PostNavigationButton/post-navigation-button';
 @import '../custom/CreatePasswordValidation/create-password-validation';
 @import '../custom/PostDificulty/post-dificulty';
-@import '../widgets/PostMetaWidget/post-meta-widget';
-@import '../widgets/PostSectionWidget/post-section-widget';
+@import '../extra/widgets/PostMetaWidget/post-meta-widget';
+@import '../extra/widgets/PostSectionWidget/post-section-widget';
 
 * {
     font-family: $elements-font-primary;
