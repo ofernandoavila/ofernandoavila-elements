@@ -20,3 +20,10 @@ interface IPostSectionWidgetProps {
     active?: number;
     topics?: { title: string; anchor: string; }[];
 }
+
+interface IPostContentWidgetProps {
+    postTitle: string;
+    postPublishDate: string;
+    postThumbnailUrl: string;
+    postContent: string;
+}

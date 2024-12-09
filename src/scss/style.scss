@@ -9,11 +9,13 @@
 @import 'buttons';
 @import 'card';
 @import 'forms';
+@import 'image';
 @import 'loading';
 
 @import '../components/buttons/PostNavigationButton/post-navigation-button';
 @import '../custom/CreatePasswordValidation/create-password-validation';
 @import '../custom/PostDificulty/post-dificulty';
+@import '../extra/widgets/PostContentWidget/post-content-widget';
 @import '../extra/widgets/PostMetaWidget/post-meta-widget';
 @import '../extra/widgets/PostSectionWidget/post-section-widget';
 
