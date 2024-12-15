@@ -1,50 +1,166 @@
-# Getting Started with Create React App
+# Elements by ofernandoavila
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
+
+This project is a React-based framework for building visual components for websites. It leverages Vite for fast builds, Bootstrap for UI styling, SASS for custom styling, and Storybook for interactive component documentation.
+
+---
+
+## Table of Contents
+
+1. [Prerequisites](#prerequisites)
+2. [Installation](#installation)
+3. [Running the Project](#running-the-project)
+4. [Available Scripts](#available-scripts)
+5. [Project Structure](#project-structure)
+6. [Customization](#customization)
+7. [FAQ](#faq)
+
+---
+
+## Prerequisites
+
+Before setting up the project, ensure you have the following installed on your machine:
+
+- [Node.js](https://nodejs.org/) (v16 or higher)
+- [npm](https://www.npmjs.com/) or [Yarn](https://yarnpkg.com/)
+- A code editor, such as [VS Code](https://code.visualstudio.com/)
+
+---
+
+## Installation
+
+Follow these steps to set up the project:
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/ofernandoavila/ofernandoavila-elements.git
+   ```
+
+2. **Navigate to the project folder**:
+
+   ```bash
+   cd ofernandoavila-elements
+   ```
+
+3. **Install dependencies**:
+
+   Using npm:
+
+   ```bash
+   npm install
+   ```
+
+   Or using Yarn:
+
+   ```bash
+   yarn install
+   ```
+
+---
+
+## Running the Project
+
+### Development Server
+
+Start the development server with Vite:
+
+Using npm:
+
+```bash
+npm run dev
+```
+
+Using Yarn:
+
+```bash
+yarn dev
+```
+
+The application will be available at `http://localhost:5173`.
+
+### Storybook
+
+Run Storybook to view and interact with your components:
+
+Using npm:
+
+```bash
+npm run storybook
+```
+
+Using Yarn:
+
+```bash
+yarn storybook
+```
+
+Storybook will be available at `http://localhost:6006`.
+
+---
 
 ## Available Scripts
 
-In the project directory, you can run:
+### `npm run dev` or `yarn dev`
+Starts the development server with Vite.
 
-### `npm start`
+### `npm run build` or `yarn build`
+Builds the project for production.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### `npm run storybook` or `yarn storybook`
+Runs the Storybook development server.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### `npm run build-storybook` or `yarn build-storybook`
+Builds the Storybook for deployment.
 
-### `npm run storybook`
+### `npm run lint` or `yarn lint`
+Runs ESLint to check for code quality issues.
 
-Storybook comes with a built-in development server featuring everything you need for project development. Depending on your system configuration, running the storybook command will start the local development server, output the address for you, and automatically open the address in a new browser tab where a welcome screen greets you.
+---
 
-### `npm test`
+## Project Structure
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+src/
+├── components/          # Standard
+├── extra/               # Custom elements
+├── forms/               # Form elements
+├── pages/               # Contains page templates
+├── scss/                # All styles
+├── validation/          # Validation presets
+├── App.jsx              # Main application file
+├── index.jsx            # Entry point
+├── .storybook/          # Storybook configuration
+├── package.json         # Project dependencies and scripts
+└── vite.config.js       # Vite configuration
+```
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Customization
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### SASS
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Modify SASS files in the `src/scss/` directory to customize the styles. Add additional `.scss` files and import them as needed in your components.
 
-### `npm run eject`
+### Bootstrap
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The project uses Bootstrap via npm. Modify Bootstrap variables by overriding them in a `_variables.scss` file in `src/scss/`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Components
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Create or modify components in the `src/components/` directory. Ensure each component has an associated Storybook story for documentation.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## FAQ
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Q1: How do I add a new dependency to the project?**  
+A1: Run `npm install package-name` or `yarn add package-name` to install new dependencies. Then, import them where needed.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Q2: Can I use another CSS framework instead of Bootstrap?**  
+A2: Yes, but you need to remove Bootstrap dependencies from `package.json` and adjust your components and styles accordingly.
+
+**Q3: How do I deploy the project?**  
+A3: Run `npm run build` or `yarn build` to create a production build. Then, deploy the files in the `dist/` folder to your hosting provider.
