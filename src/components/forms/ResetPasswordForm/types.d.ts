@@ -1,4 +1,4 @@
-import { InputValidationStatus } from "../../../forms/inputs/types";
+import { InputValidationStatus } from "../../inputs/types";
 
 interface IFormResetPasswordFormProps extends IFormProps {
     options?: {

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 
 import '../../../scss/style.scss';
-import { Loading } from '../../../elements/Loading/Loading';
+import { Loading } from '../../Loading/Loading';
 import { IButtonProps } from '../types';
 
 export function Button({ 

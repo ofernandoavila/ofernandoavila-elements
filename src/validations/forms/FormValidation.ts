@@ -1,5 +1,5 @@
 import React, { SetStateAction } from "react";
-import { IInputValidation } from "../../forms/inputs/types";
+import { IInputValidation } from "../../components/inputs/types";
 
 export interface IValidation {
     validator: () => boolean;

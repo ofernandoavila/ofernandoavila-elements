@@ -2,7 +2,7 @@ import { Card } from "../Card/Card";
 import { IPostCardProps } from "../types";
 
 import '../../../scss/style.scss';
-import { PostDificulty } from "../../../custom/PostDificulty/PostDificulty";
+import { PostDificulty } from "../../custom/PostDificulty/PostDificulty";
 
 export function PostCard({
     postCategory,

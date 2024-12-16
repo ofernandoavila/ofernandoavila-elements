@@ -1,13 +1,13 @@
 import { useState } from "react";
-import { Text } from "../../../forms/inputs/Text/Text";
-import { IInputValidation, InputValidationStatus } from "../../../forms/inputs/types";
-import { CreatePasswordValidation } from "../../../custom/CreatePasswordValidation/CreatePasswordValidation";
-import { Password } from "../../../forms/inputs/Password/Password";
+import { Text } from "../../inputs/Text/Text";
+import { IInputValidation, InputValidationStatus } from "../../inputs/types";
+import { CreatePasswordValidation } from "../../custom/CreatePasswordValidation/CreatePasswordValidation";
+import { Password } from "../../inputs/Password/Password";
 import { IFormResetCodeFormProps, IFormResetPasswordEndFormProps, IFormResetPasswordFormProps } from "./types";
 import { formValidation, IValidation, ValidateForm } from "../../../validations/forms/FormValidation";
 
 import '../../../scss/style.scss';
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../buttons/Button/Button";
 
 export function ResetPasswordForm({
     title,

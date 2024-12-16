@@ -1,4 +1,4 @@
-import { Card } from "../../../components/card/Card/Card";
+import { Card } from "../../card/Card/Card";
 
 export function PostContentWidget({
     postPublishDate,

@@ -1,5 +1,5 @@
-import { Card } from "../../../components/card/Card/Card";
-import { PostDificulty } from "../../../custom/PostDificulty/PostDificulty";
+import { Card } from "../../card/Card/Card";
+import { PostDificulty } from "../../custom/PostDificulty/PostDificulty";
 
 import '../../../scss/style.scss';
 

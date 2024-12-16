@@ -1,4 +1,4 @@
-import { IFormResetCodeFormProps, IFormResetPasswordEndFormProps, IFormResetPasswordFormProps } from "../../../extra/forms/ResetPasswordForm/types";
+import { IFormResetCodeFormProps, IFormResetPasswordEndFormProps, IFormResetPasswordFormProps } from "../../../components/forms/ResetPasswordForm/types";
 
 interface IPageResetPasswordProps {
     resetCodeForm?: IFormResetCodeFormProps;

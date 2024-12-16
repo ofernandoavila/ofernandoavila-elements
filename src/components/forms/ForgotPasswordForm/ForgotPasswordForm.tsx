@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import { Text } from "../../../forms/inputs/Text/Text";
-import { IFormForgotPasswordFormProps, IInputValidation } from "../../../forms/inputs/types";
+import { Text } from "../../inputs/Text/Text";
+import { IFormForgotPasswordFormProps, IInputValidation } from "../../inputs/types";
 
 import '../../../scss/style.scss';
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../buttons/Button/Button";
 
 export function ForgotPasswordForm({
     title,

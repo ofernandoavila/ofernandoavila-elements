@@ -1,4 +1,4 @@
-import { Card } from '../../../components/card/Card/Card';
+import { Card } from '../../card/Card/Card';
 import '../../../scss/style.scss';
 
 export function PostSectionWidget({

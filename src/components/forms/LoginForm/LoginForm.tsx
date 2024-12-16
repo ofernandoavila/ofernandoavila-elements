@@ -1,11 +1,11 @@
 import { useState } from "react";
-import { Checkbox } from "../../../forms/inputs/Checkbox/Checkbox";
-import { Password } from "../../../forms/inputs/Password/Password";
-import { Text } from "../../../forms/inputs/Text/Text";
-import { IInputValidation } from "../../../forms/inputs/types";
+import { Checkbox } from "../../inputs/Checkbox/Checkbox";
+import { Password } from "../../inputs/Password/Password";
+import { Text } from "../../inputs/Text/Text";
+import { IInputValidation } from "../../inputs/types";
 
 import '../../../scss/style.scss';
-import { Button } from "../../../components/buttons/Button/Button";
+import { Button } from "../../buttons/Button/Button";
 
 export function LoginForm({
     title,

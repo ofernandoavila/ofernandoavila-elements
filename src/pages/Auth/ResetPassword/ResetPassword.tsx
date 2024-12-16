@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ResetCodeForm, ResetPasswordEndForm, ResetPasswordForm } from "../../../extra/forms/ResetPasswordForm/ResetPasswordForm";
+import { ResetCodeForm, ResetPasswordEndForm, ResetPasswordForm } from "../../../components/forms/ResetPasswordForm/ResetPasswordForm";
 import { IPageResetPasswordProps } from "./types";
 
 export function ResetPassword({
