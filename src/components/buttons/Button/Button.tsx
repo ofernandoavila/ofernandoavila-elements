@@ -1,8 +1,7 @@
-import { useEffect } from 'react';
-
-import '../../../scss/style.scss';
 import { Loading } from '../../Loading/Loading';
 import { IButtonProps } from '../types';
+
+import '../../../scss/style.scss';
 
 export function Button({ 
     label, 
@@ -11,10 +10,6 @@ export function Button({
     children,
     isLoading
 }: IButtonProps) {
-    
-    useEffect(() => {
-        console.log(color?.toString());
-    }, [color]);
 
     if(children) {
         return (

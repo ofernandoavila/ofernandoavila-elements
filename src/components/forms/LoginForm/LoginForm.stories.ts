@@ -16,22 +16,24 @@ export const Default: Story = {
     args: {
         title: 'Sign In',
         bordered: true,
-        rememberPasswordOption: true
-    }
-};
+        rememberPasswordOption: true,
+        onSubmitForm: 
+            ({ 
+                username, 
+                password, 
+                rememberPassword 
+            }: { 
+                username: string; 
+                password: string;
+                rememberPassword: boolean; 
+            }) => new Promise<void>((resolve, reject) => {
+                console.log({
+                    username,
+                    password,
+                    rememberPassword
+                });
 
-export const Invalid: Story = {
-    args: {
-        title: 'Sign In',
-        bordered: true,
-        rememberPasswordOption: true
-    }
-};
-
-export const Valid: Story = {
-    args: {
-        title: 'Sign In',
-        bordered: true,
-        rememberPasswordOption: true
+                resolve();
+            })
     }
 };

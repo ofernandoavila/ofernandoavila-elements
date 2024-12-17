@@ -2,10 +2,10 @@ import { useState } from "react";
 import { Checkbox } from "../../inputs/Checkbox/Checkbox";
 import { Password } from "../../inputs/Password/Password";
 import { Text } from "../../inputs/Text/Text";
-import { IInputValidation } from "../../inputs/types";
+import { Button } from "../../buttons/Button/Button";
+import { BasicValidation } from "../../../validations/inputs/BasicValidation/BasicValidation";
 
 import '../../../scss/style.scss';
-import { Button } from "../../buttons/Button/Button";
 
 export function LoginForm({
     title,
@@ -14,12 +14,13 @@ export function LoginForm({
     onSubmitForm
 }: IFormLoginFormProps) {
     const [username, setUsername] = useState('');
-    const [usernameValidation, setUsernameValidation] = useState<IInputValidation | undefined>(undefined);
-
     const [password, setPassword] = useState('');
-    const [passwordValidation, setPasswordValidation] = useState<IInputValidation | undefined>(undefined);
+    const [rememberPassword, setRememberPassword] = useState(false);
 
     const [isLoading, setIsLoading] = useState(false);
+
+    const HandleValidateUsername = (value?: string) : boolean | null => BasicValidation.not_empty(value!);
+    const HandleValidatePassword = (value?: string) : boolean => BasicValidation.not_empty(value!);
 
     async function HandleOnSubmitForm(e: any) {
         e.preventDefault();
@@ -27,33 +28,13 @@ export function LoginForm({
         setIsLoading(true);
         const errors = [];
 
-        if(username === '') {
-            errors.push(false);
-            setUsernameValidation({
-                status:"invalid",
-                message: 'This field cannot be empty'
-            });
-        } else {
-            setUsernameValidation({
-                status: "valid",
-            });
-        }
-        
-        if(password === '') {
-            errors.push(false);
-            setPasswordValidation({
-                status:"invalid",
-                message: 'This field cannot be empty'
-            });
-        } else {
-            setPasswordValidation({
-                status: "valid",
-            });
-        }
+        errors.push(HandleValidateUsername(username));
+        errors.push(HandleValidatePassword(password));
 
         if(errors.filter( x => x === false).length === 0) {
             if(onSubmitForm) {
-                await onSubmitForm({ username, password });
+                await onSubmitForm({ username, password, rememberPassword });
+                setIsLoading(false);
             }
         }
         
@@ -63,10 +44,31 @@ export function LoginForm({
     return (
         <form className={`form ${ bordered ? 'form-bordered' : '' }`} action="">
             { title ? <h4 className="title"> { title }</h4> : '' }
-            <Text label="Username" validation={usernameValidation} onChange={e => setUsername(e.target.value) } placeholder="Insert your username here" />
-            <Password label="Password" validation={passwordValidation} onChange={e => setPassword(e.target.value) } placeholder="Insert your password here" />
-            { rememberPasswordOption ? <Checkbox label="Remember password?" id="remember-password" name="remember-password" /> : '' }
-            <Button label="Login" color="primary" onClick={HandleOnSubmitForm} />
+            <Text 
+                label="Username" 
+                placeholder="Insert your username here"
+                value={username}
+                setValue={setUsername}
+                onErrorMessage={() => 'This field cannot be empty'}
+                onValidate={HandleValidateUsername}
+            />
+            <Password 
+                label="Password" 
+                setValue={ setPassword } 
+                placeholder="Insert your password here"
+                onErrorMessage={() => 'This field cannot be empty'}
+                onValidate={HandleValidatePassword}
+            />
+            { rememberPasswordOption ? 
+                <Checkbox 
+                    label="Remember password?" 
+                    id="remember-password" 
+                    name="remember-password"
+                    value={rememberPassword}
+                    setValue={ setRememberPassword }
+                /> : '' 
+            }
+            <Button label="Login" isLoading={isLoading} color="primary" onClick={HandleOnSubmitForm} />
         </form>
     );
 }

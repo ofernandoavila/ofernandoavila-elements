@@ -28,8 +28,11 @@ export interface SetStateInput<T> {
     setValue?: React.Dispatch<SetStateAction<T>>;
 }
 
+export type OnValidateInputState = 'default' | 'valid' | 'invalid';
+
 export interface OnValidateInput<T> {
-    onValidate?: (value?: T) => boolean;
+    onValidate?: (value: T) => boolean | null;
+    state?: OnValidateInputState;
     onErrorMessage?: () => string;
     onSuccessMessage?: () => string;
 }

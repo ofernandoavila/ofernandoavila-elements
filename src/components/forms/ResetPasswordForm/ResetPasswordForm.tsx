@@ -8,36 +8,36 @@ import { formValidation, IValidation, ValidateForm } from "../../../validations/
 
 import '../../../scss/style.scss';
 import { Button } from "../../buttons/Button/Button";
+import { PasswordValidation } from "../../../validations/inputs/Password/PasswordValidation";
 
 export function ResetPasswordForm({
     title,
     bordered,
-    onSubmitForm = (x: any) => new Promise<void>(() => {}),
+    onSubmitForm,
     options
 }: IFormResetPasswordFormProps) {
     const [password, setPassword] = useState('');
     const [isPasswordValid, setIsPasswordValid] = useState(false);
-    const [passwordValidation, setPasswordValidation] = useState<IInputValidation | undefined>(undefined);
     
     const [confirmPassword, setConfirmPassword] = useState('');
-    const [confirmPasswordValidation, setConfirmPasswordValidation] = useState<IInputValidation | undefined>(undefined);
-    
-    const validations: IValidation[] = [
-        { validator: () => formValidation.password(isPasswordValid, setPasswordValidation) },
-        { validator: () => formValidation.confirmPassword(password, confirmPassword, setConfirmPasswordValidation) }
-    ];
 
     function HandleOnSubmitForm(e: any) {
         e.preventDefault();
-        if(ValidateForm(validations)) {
-            return onSubmitForm({ password });
-        }
+        
     }
 
     return (
         <form className={`form ${ bordered ? 'form-bordered' : '' }`}>
             { title ? <h4 className="title"> { title }</h4> : '' }
-            <Password label="Password" validation={passwordValidation} value={password} onChange={e => setPassword(e.currentTarget.value)} placeholder="Insert your password here" />
+            <Password 
+                label="Password"
+                value={ password } 
+                setValue={ setPassword }
+                onErrorMessage={ () => "Password is invalid!" }
+                onSuccessMessage={ () => "Password is valid!" }
+                placeholder="Insert your password here"
+                onValidate={ (password: string) => PasswordValidation.completeValidation(password, options?.passwordValidation?.minimumChars!) }
+            />
             <CreatePasswordValidation
                 setValidation={ setIsPasswordValid }
                 password={ password }
@@ -46,38 +46,16 @@ export function ResetPasswordForm({
                 hasUpperCase={options?.passwordValidation?.hasUpperCase}
                 hasSpecialChar={options?.passwordValidation?.hasSpecialChar}
             />
-            <Password value={confirmPassword} validation={confirmPasswordValidation} onChange={e => setConfirmPassword(e.currentTarget.value)} label="Confirm password" placeholder="Insert your password again here" />
+            <Password 
+                value={confirmPassword} 
+                setValue={ setConfirmPassword }
+                label="Confirm password"
+                placeholder="Insert your password again here"
+                onErrorMessage={ () => "Confirm password is invalid!" }
+                onSuccessMessage={ () => "Confirm password is valid!" }
+                onValidate={ (confirmPassword: string) => PasswordValidation.matchPassword(password, confirmPassword) }
+            />
             <Button label="Save password" color="primary" onClick={HandleOnSubmitForm} />
-        </form>
-    );
-}
-
-export function ResetCodeForm({
-    title,
-    bordered,
-    onSubmitForm = (x: any) => new Promise<void>(() => {}),
-    message,
-}: IFormResetCodeFormProps) {
-    const [code, setCode] = useState<string>('');
-    const [codeValidation, setCodeValidation] = useState<IInputValidation | undefined>(undefined);
-
-    const validations: IValidation[] = [
-        { validator: () => formValidation.code(code, setCodeValidation) }
-    ];
-
-    function HandleOnSubmitForm(e: any) {
-        e.preventDefault();
-        if(ValidateForm(validations)) {
-            return onSubmitForm({ code });
-        }
-    }
-
-    return (
-        <form className={`form ${ bordered ? 'form-bordered' : '' }`}>
-            { title ? <h4 className="title"> { title }</h4> : '' }
-            { message ? <p>{ message }</p> : '' }
-            <Text label="Reset code" value={code} validation={codeValidation} onChange={e => setCode(e.currentTarget.value)}  placeholder="Insert the reset code here" />
-            <Button label="Send reset link" color="primary" onClick={HandleOnSubmitForm}>Reset password <i className="fa fa-arrow-right"></i></Button>
         </form>
     );
 }
