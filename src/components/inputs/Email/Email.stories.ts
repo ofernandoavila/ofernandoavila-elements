@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Email } from "./Email";
+import { EmailInputProps } from "../types";
 
 const meta = {
     title: 'Forms/Inputs/Email',
@@ -12,26 +13,31 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const template: Partial<EmailInputProps> = {
+    label: 'E-mail',
+    placeholder: 'Enter your e-mail here',
+    onSuccessMessage: () => "E-mail is valid!",
+    onErrorMessage: () => "E-mail is not valid!",
+}
+
 export const Default: Story = {
     args: {
-        label: 'E-mail',
+        ...template
     }
 };
-export const Valid: Story = {
-    args: {
-        value: 'email@test.com',
-        setValue: ()=> {},
-        label: 'E-mail',
-        onSuccessMessage: () => "E-mail is valid!",
-        onValidate: () => true,
-    }
-};
+
 export const Invalid: Story = {
     args: {
+        ...template,
         value: 'email@test',
-        setValue: () => {},
-        label: 'E-mail',
-        onErrorMessage: () => "E-mail is not valid!",
-        onValidate: () => false,
+        onValidate: () => false,        
+    }
+};
+
+export const Valid: Story = {
+    args: {
+        ...template,
+        value: 'email@test.com',
+        onValidate: () => true,
     }
 };

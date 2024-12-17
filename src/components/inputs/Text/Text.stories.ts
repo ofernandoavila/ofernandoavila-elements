@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Text } from "./Text";
+import { TextInputProps } from "../types";
 
 const meta = {
     title: 'Forms/Inputs/Text',
@@ -12,31 +13,30 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const template: Partial<TextInputProps> = {
+    id: 'checkbox',
+    name: 'checkbox',
+    label: 'Text',
+    onSuccessMessage: () => "Text is valid!",
+    onErrorMessage: () => "Text is not valid!",
+}
+
 export const Default: Story = {
     args: {
-        label: 'Name',
-        placeholder: 'John Doe'
+        ...template
     }
 };
 
 export const Invalid: Story = {
     args: {
-        label: 'Name',
-        placeholder: 'John Doe',
-        validation: {
-            status: "invalid",
-            message: "Insert your name here"
-        }
+        ...template,
+        onValidate: () => false,        
     }
 };
 
 export const Valid: Story = {
     args: {
-        label: 'Name',
-        placeholder: 'John Doe',
-        validation: {
-            status: "valid",
-            message: "Success!"
-        }
+        ...template,
+        onValidate: () => true,
     }
 };

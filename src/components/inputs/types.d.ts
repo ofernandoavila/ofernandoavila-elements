@@ -23,15 +23,39 @@ interface IFormForgotPasswordFormProps {
     onSubmitForm: (form: any) => void;
 }
 
-export interface SetState<T> {
+export interface SetStateInput<T> {
     value?: T;
-    setValue?: React.ChangeEventHandler<HTMLInputElement>;
+    setValue?: React.Dispatch<SetStateAction<T>>;
 }
 
-export interface EmailProps extends SetState<string> {
-    onValidate?: (email?: string) => boolean;
+export interface OnValidateInput<T> {
+    onValidate?: (value?: T) => boolean;
     onErrorMessage?: () => string;
     onSuccessMessage?: () => string;
+}
+
+export interface InputProps<T> extends InputProps, SetStateInput<T>, OnValidateInput<T> {
     label?: string;
     placeholder?: string;
+    name?: string;
+    id?: string;
+}
+
+export interface BasicInputProps<T> extends InputProps<T> {
+    type?: React.HTMLInputTypeAttribute | 'textarea';
+}
+
+export interface TextInputProps extends InputProps<string> {
+}
+
+export interface EmailInputProps extends InputProps<string> {
+}
+
+export interface PasswordInputProps extends InputProps<string> {
+}
+
+export interface CheckboxInputProps extends InputProps<boolean> {
+}
+
+export interface TextAreaInputProps extends InputProps<boolean> {
 }

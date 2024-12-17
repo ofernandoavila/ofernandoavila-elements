@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Checkbox } from "./Checkbox";
+import { CheckboxInputProps } from "../types";
 
 const meta = {
     title: 'Forms/Inputs/Checkbox',
@@ -12,33 +13,32 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const template: Partial<CheckboxInputProps> = {
+    id: 'checkbox',
+    name: 'checkbox',
+    label: 'Checkbox',
+    onSuccessMessage: () => "Checked!",
+    onErrorMessage: () => "You must check this field!",
+}
+
 export const Default: Story = {
     args: {
-        label: 'Checkbox',
-        placeholder: 'Enter your password here',
-        id: 'checkbox'
+        ...template
     }
 };
 
 export const Invalid: Story = {
     args: {
-        label: 'Checkbox',
-        placeholder: 'Enter your password here',
-        id: 'checkbox',
-        validation: {
-            status: "invalid",
-            message: "Wrong password"
-        }
+        ...template,
+        value: false,
+        onValidate: () => false,        
     }
 };
 
 export const Valid: Story = {
     args: {
-        label: 'Checkbox',
-        placeholder: 'Enter your password here',
-        validation: {
-            status: "valid"
-        },
-        id: 'checkbox'
+        ...template,
+        value: true,
+        onValidate: () => true,
     }
 };

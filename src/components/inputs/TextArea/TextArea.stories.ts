@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { TextArea } from "./TextArea";
+import { TextAreaInputProps } from "../types";
 
 const meta = {
     title: 'Forms/Inputs/TextArea',
@@ -12,31 +13,31 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const template: Partial<TextAreaInputProps> = {
+    id: 'checkbox',
+    name: 'checkbox',
+    label: 'Message',
+    placeholder: 'Write your message here',
+    onSuccessMessage: () => "Textarea is valid!",
+    onErrorMessage: () => "Textarea is not valid!",
+}
+
 export const Default: Story = {
     args: {
-        label: 'Message',
-        placeholder: 'Write your message here'
+        ...template
     }
 };
 
 export const Invalid: Story = {
     args: {
-        label: 'Message',
-        placeholder: 'Write your message here',
-        validation: {
-            status: "invalid",
-            message: "Insert your name here"
-        }
+        ...template,
+        onValidate: () => false,        
     }
 };
 
 export const Valid: Story = {
     args: {
-        label: 'Message',
-        placeholder: 'Write your message here',
-        validation: {
-            status: "valid",
-            message: "Success!"
-        }
+        ...template,
+        onValidate: () => true,
     }
 };

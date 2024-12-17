@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Password } from "./Password";
+import { PasswordInputProps } from "../types";
 
 const meta = {
     title: 'Forms/Inputs/Password',
@@ -12,30 +13,29 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+const template: Partial<PasswordInputProps> = {
+    label: 'Password',
+    placeholder: 'Enter your password here',
+    onSuccessMessage: () => "Password is valid!",
+    onErrorMessage: () => "Password is not valid!",
+}
+
 export const Default: Story = {
     args: {
-        label: 'Password',
-        placeholder: 'Enter your password here'
+        ...template
     }
 };
 
 export const Invalid: Story = {
     args: {
-        label: 'Password',
-        placeholder: 'Enter your password here',
-        validation: {
-            status: "invalid",
-            message: "Wrong password"
-        }
+        ...template,
+        onValidate: () => false,        
     }
 };
 
 export const Valid: Story = {
     args: {
-        label: 'Password',
-        placeholder: 'Enter your password here',
-        validation: {
-            status: "valid"
-        }
+        ...template,
+        onValidate: () => true,
     }
 };
