@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { IPostDificultyProps } from "../CreatePasswordValidation/types";
 
-import '../../scss/style.scss';
+import '../../../scss/style.scss';
 
 export function PostDificulty({ postRating }: IPostDificultyProps) {
     const [rating, setRating] = useState<JSX.Element[]>([]);

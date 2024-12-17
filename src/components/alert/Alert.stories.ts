@@ -14,30 +14,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Success: Story = {
-	args: {
-		mesage: "A wonderful serenity has taken possession",
-		type: 'success'
-	},
-};
-
-export const Danger: Story = {
-	args: {
-		mesage: "A wonderful serenity has taken possession",
-		type: 'danger'
-	},
-};
-
-export const Info: Story = {
+export const Default: Story = {
 	args: {
 		mesage: "A wonderful serenity has taken possession",
 		type: 'info'
 	},
-};
-
-export const Warning: Story = {
-	args: {
-		mesage: "A wonderful serenity has taken possession",
-		type: 'warning'
-	},
+	argTypes: {
+		type: {
+			options: [ 'danger', 'info', 'success', 'warning' ] as IAlertType[] as string[],
+			control: {
+				type: 'select'
+			}
+		}
+	}
 };

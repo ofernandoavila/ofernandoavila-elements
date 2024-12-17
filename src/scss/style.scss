@@ -13,11 +13,11 @@
 @import 'loading';
 
 @import '../components/buttons/PostNavigationButton/post-navigation-button';
-@import '../custom/CreatePasswordValidation/create-password-validation';
-@import '../custom/PostDificulty/post-dificulty';
-@import '../extra/widgets/PostContentWidget/post-content-widget';
-@import '../extra/widgets/PostMetaWidget/post-meta-widget';
-@import '../extra/widgets/PostSectionWidget/post-section-widget';
+@import '../components/custom/CreatePasswordValidation/create-password-validation';
+@import '../components/custom/PostDificulty/post-dificulty';
+@import '../components/widgets/PostContentWidget/post-content-widget';
+@import '../components/widgets/PostMetaWidget/post-meta-widget';
+@import '../components/widgets/PostSectionWidget/post-section-widget';
 
 * {
     font-family: $elements-font-primary;

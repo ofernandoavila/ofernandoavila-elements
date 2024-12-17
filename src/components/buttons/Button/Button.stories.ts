@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
+import { ButtonColorType } from '../types';
 
 const meta = {
 	title: 'Components/Button',
@@ -13,16 +14,17 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Primary: Story = {
+export const Default: Story = {
 	args: {
 		label: 'Click me!',
 		color: 'primary'
 	},
-};
-
-export const Save: Story = {
-  args: {
-    label: 'Save',
-	color: 'success'
-  },
+	argTypes: {
+		color: {
+			options: [ 'danger', 'default', 'nav', 'primary', 'secondary', 'success', 'third', 'warning' ] as ButtonColorType[] as string[],
+			control: {
+				type: 'select'
+			}
+		}
+	}
 };
