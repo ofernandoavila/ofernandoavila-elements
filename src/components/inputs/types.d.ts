@@ -1,4 +1,4 @@
-import { InputHTMLAttributes } from "react";
+import React, { InputHTMLAttributes, SetStateAction } from "react";
 
 export type InputValidationStatus = 'valid' | 'invalid';
 
@@ -21,4 +21,17 @@ interface IFormForgotPasswordFormProps {
         backToSignIn?: () => void;
     };
     onSubmitForm: (form: any) => void;
+}
+
+export interface SetState<T> {
+    value?: T;
+    setValue?: React.ChangeEventHandler<HTMLInputElement>;
+}
+
+export interface EmailProps extends SetState<string> {
+    onValidate?: (email?: string) => boolean;
+    onErrorMessage?: () => string;
+    onSuccessMessage?: () => string;
+    label?: string;
+    placeholder?: string;
 }
