@@ -24,7 +24,9 @@ export function CreatePasswordValidation({
         if(hasUpperCase) results.push(PasswordValidation.hasUpperCase(password));
         if(hasSpecialChar) results.push(PasswordValidation.hasSpecialChar(password));
 
-        setValidation(!(results.filter( x => x === false).length > 0));
+        if(setValidation) {
+            setValidation(!(results.filter( x => x === false).length > 0));
+        }
     }
 
     return (

@@ -4,6 +4,7 @@ import { Password } from "../../inputs/Password/Password";
 import { Text } from "../../inputs/Text/Text";
 import { Button } from "../../buttons/Button/Button";
 import { BasicValidation } from "../../../validations/inputs/BasicValidation/BasicValidation";
+import { OnValidateInputState } from "../../inputs/types";
 
 import '../../../scss/style.scss';
 
@@ -22,8 +23,18 @@ export function LoginForm({
     const HandleValidateUsername = (value?: string) : boolean | null => BasicValidation.not_empty(value!);
     const HandleValidatePassword = (value?: string) : boolean => BasicValidation.not_empty(value!);
 
+    const [states, setStates] = useState<{
+        username: OnValidateInputState;
+        password: OnValidateInputState;
+    }| undefined>(undefined);
+
     async function HandleOnSubmitForm(e: any) {
         e.preventDefault();
+
+        setStates({
+            username: HandleValidateUsername(username) ? 'valid' : 'invalid',
+            password: HandleValidatePassword(password) ? 'valid' : 'invalid',
+        });
         
         setIsLoading(true);
         const errors = [];
@@ -51,6 +62,7 @@ export function LoginForm({
                 setValue={setUsername}
                 onErrorMessage={() => 'This field cannot be empty'}
                 onValidate={HandleValidateUsername}
+                state={ states?.username }
             />
             <Password 
                 label="Password" 
@@ -58,6 +70,7 @@ export function LoginForm({
                 placeholder="Insert your password here"
                 onErrorMessage={() => 'This field cannot be empty'}
                 onValidate={HandleValidatePassword}
+                state={ states?.password }
             />
             { rememberPasswordOption ? 
                 <Checkbox 

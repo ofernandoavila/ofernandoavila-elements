@@ -29,13 +29,13 @@ export const Default: Story = {
 export const Invalid: Story = {
     args: {
         ...template,
-        onValidate: () => false,        
+        state: "invalid"        
     }
 };
 
 export const Valid: Story = {
     args: {
         ...template,
-        onValidate: () => true,
+        state: "valid"
     }
 };

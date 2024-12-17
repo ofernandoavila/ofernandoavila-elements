@@ -31,7 +31,7 @@ export const Invalid: Story = {
     args: {
         ...template,
         value: false,
-        onValidate: () => false,        
+        state: 'invalid'
     }
 };
 
@@ -39,6 +39,6 @@ export const Valid: Story = {
     args: {
         ...template,
         value: true,
-        onValidate: () => true,
+        state: 'valid'
     }
 };

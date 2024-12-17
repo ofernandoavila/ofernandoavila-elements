@@ -6,7 +6,7 @@ interface ICreatePasswordValidationProps {
     hasNumber?: boolean;
     hasUpperCase?: boolean;
     hasSpecialChar?: boolean;
-    setValidation: React.Dispatch<SetStateAction<boolean>>;
+    setValidation?: React.Dispatch<SetStateAction<boolean>>;
 }
 
 interface ICreatePasswordValidationItemProps {

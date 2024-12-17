@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { Text } from "../../inputs/Text/Text";
-import { IInputValidation, InputValidationStatus } from "../../inputs/types";
+import { InputValidationStatus, OnValidateInputState } from "../../inputs/types";
 import { CreatePasswordValidation } from "../../custom/CreatePasswordValidation/CreatePasswordValidation";
 import { Password } from "../../inputs/Password/Password";
-import { IFormResetCodeFormProps, IFormResetPasswordEndFormProps, IFormResetPasswordFormProps } from "./types";
-import { formValidation, IValidation, ValidateForm } from "../../../validations/forms/FormValidation";
-
-import '../../../scss/style.scss';
+import { IFormResetPasswordEndFormProps, IFormResetPasswordFormProps } from "./types";
 import { Button } from "../../buttons/Button/Button";
 import { PasswordValidation } from "../../../validations/inputs/Password/PasswordValidation";
+
+import '../../../scss/style.scss';
 
 export function ResetPasswordForm({
     title,
@@ -17,13 +15,33 @@ export function ResetPasswordForm({
     options
 }: IFormResetPasswordFormProps) {
     const [password, setPassword] = useState('');
-    const [isPasswordValid, setIsPasswordValid] = useState(false);
-    
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    function HandleOnSubmitForm(e: any) {
+    const HandleValidatePassword = (value: string) => PasswordValidation.completeValidation(value, options?.passwordValidation?.minimumChars!);
+    const HandleValidateConfirmPassword = (value: string) => PasswordValidation.matchPassword(password, value);
+
+    const [states, setStates] = useState<{ 
+        password: OnValidateInputState; 
+        confirmPassword: OnValidateInputState;
+    } | undefined>(undefined);
+
+    async function HandleOnSubmitForm(e: any) {
         e.preventDefault();
-        
+        let errors: boolean[] = [];
+
+        setStates({
+            password: HandleValidatePassword(password) ? 'valid' : 'invalid',
+            confirmPassword: HandleValidateConfirmPassword(confirmPassword) ? 'valid' : 'invalid'
+        });
+
+        errors.push(HandleValidatePassword(password));
+        errors.push(HandleValidateConfirmPassword(confirmPassword));
+
+        if(errors.filter( x => x === false).length === 0) {
+            if(onSubmitForm) {
+                await onSubmitForm({ password });
+            }
+        }
     }
 
     return (
@@ -36,10 +54,10 @@ export function ResetPasswordForm({
                 onErrorMessage={ () => "Password is invalid!" }
                 onSuccessMessage={ () => "Password is valid!" }
                 placeholder="Insert your password here"
-                onValidate={ (password: string) => PasswordValidation.completeValidation(password, options?.passwordValidation?.minimumChars!) }
+                onValidate={ HandleValidatePassword }
+                state={ states?.password }
             />
             <CreatePasswordValidation
-                setValidation={ setIsPasswordValid }
                 password={ password }
                 minimumChars={options?.passwordValidation?.minimumChars}
                 hasNumber={options?.passwordValidation?.hasNumber}
@@ -53,7 +71,8 @@ export function ResetPasswordForm({
                 placeholder="Insert your password again here"
                 onErrorMessage={ () => "Confirm password is invalid!" }
                 onSuccessMessage={ () => "Confirm password is valid!" }
-                onValidate={ (confirmPassword: string) => PasswordValidation.matchPassword(password, confirmPassword) }
+                onValidate={ HandleValidateConfirmPassword }
+                state={ states?.confirmPassword }
             />
             <Button label="Save password" color="primary" onClick={HandleOnSubmitForm} />
         </form>
@@ -67,7 +86,7 @@ export function ResetPasswordEndForm({
     isOperationValid
 }: IFormResetPasswordEndFormProps) {
 
-    const [status, setStatus] = useState<InputValidationStatus>(isOperationValid);
+    const [status] = useState<InputValidationStatus>(isOperationValid);
 
     return (
         <form className={`form ${ bordered ? 'form-bordered' : '' }`}>
