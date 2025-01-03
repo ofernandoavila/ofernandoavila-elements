@@ -60,5 +60,5 @@ export interface PasswordInputProps extends InputProps<string> {
 export interface CheckboxInputProps extends InputProps<boolean> {
 }
 
-export interface TextAreaInputProps extends InputProps<boolean> {
+export interface TextAreaInputProps extends InputProps<string> {
 }

@@ -15,9 +15,11 @@
 @import '../components/buttons/PostNavigationButton/post-navigation-button';
 @import '../components/custom/CreatePasswordValidation/create-password-validation';
 @import '../components/custom/PostDificulty/post-dificulty';
+@import '../components/forms/CommentForm/comment-form';
 @import '../components/widgets/PostContentWidget/post-content-widget';
 @import '../components/widgets/PostMetaWidget/post-meta-widget';
 @import '../components/widgets/PostSectionWidget/post-section-widget';
+
 
 * {
     font-family: $elements-font-primary;
